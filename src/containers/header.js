@@ -1,0 +1,12 @@
+import { Header } from "../components";
+
+export default function HeaderContainer() {
+  return (
+    <Header>
+      <Header.Frame>
+        <Header.Logo />
+        <Header.Button />
+      </Header.Frame>
+    </Header>
+  );
+}
