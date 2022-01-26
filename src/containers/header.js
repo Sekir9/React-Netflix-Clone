@@ -1,12 +1,18 @@
-import { Header } from "../components";
+import * as ROUTES from '../constants/routes'
 
-export default function HeaderContainer() {
+import { Header } from "../components";
+import React from "react";
+import { Routes } from 'react-router-dom';
+import logo from '../logo.svg'
+
+export function HeaderContainer({ children }) {
   return (
     <Header>
       <Header.Frame>
-        <Header.Logo />
-        <Header.Button />
+        <Header.Logo to={ROUTES.HOME}  alt="Netflix" src={logo}/>
+        <Header.ButtonLink  to={ROUTES.SIGN_IN}>Sign In</Header.ButtonLink>
       </Header.Frame>
+      {children}
     </Header>
   );
 }

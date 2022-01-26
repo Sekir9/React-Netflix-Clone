@@ -7,21 +7,11 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/browse">
-          <Browse />
-        </Route>
-        <Route exact path="/signup">
-          <Signup />
-        </Route>
-        <Route exact path="/signin">
-          <Signin />
-        </Route>
-        <Route exact path="/signup">
-          <Signup />
-        </Route>
-        <Route exact path={ROUTES.HOME}>
-          <Home />
-        </Route>
+        <Route exact path="/browse" element={<Browse />}/>
+        <Route exact path="/signup" element={<Signup />}/>
+        <Route exact path="/signin" element= {<Signin />}/>
+        <Route exact path="/signup" element={<Signup />}/>
+        <Route exact path={ROUTES.HOME} element= {<Home />}/>
       </Routes>
     </Router>
   );
