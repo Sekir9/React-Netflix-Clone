@@ -6,7 +6,7 @@ import { FooterContainer } from "../containers/footer";
 import * as ROUTES from "../constants/routes";
 import { useNavigate } from "react-router-dom";
 
-export default function Signup() {
+export default function SignUp() {
   const navigate = useNavigate();
   const { firebase } = useContext(FirebaseContext);
 
