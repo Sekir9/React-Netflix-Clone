@@ -6,6 +6,7 @@ import { FooterContainer } from '../containers/footer';
 import * as ROUTES from '../constants/routes';
 import { useNavigate } from 'react-router-dom';
 
+
 export default function SignIn() {
 
   const navigate = useNavigate();
@@ -18,10 +19,11 @@ export default function SignIn() {
 
   const handleSignin = (event) => {
     event.preventDefault();
+    
 
     firebase
       .auth()
-      .signInWithEmailAndPassowrd(emailAddress, password)
+      .signInWithEmailAndPassword(emailAddress, password)
       .then(() => {
         navigate.push(ROUTES.BROWSE);
       })
@@ -37,7 +39,7 @@ export default function SignIn() {
       <HeaderContainer>
         <Form>
           <Form.Title>Sign In</Form.Title>
-          {error && <Form.Error data-testid="error">{error}</Form.Error>}
+          {error && <Form.Error>{error}</Form.Error>}
 
           <Form.Base onSubmit={handleSignin} method="POST">
             <Form.Input
@@ -52,7 +54,7 @@ export default function SignIn() {
               placeholder="Password"
               onChange={({ target }) => setPassword(target.value)}
             />
-            <Form.Submit disabled={isInvalid} type="submit" data-testid="sign-in">
+            <Form.Submit disabled={isInvalid} type="submit">
               Sign In
             </Form.Submit>
           </Form.Base>
