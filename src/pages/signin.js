@@ -4,8 +4,8 @@ import { FirebaseContext } from '../context/firebase'
 import { HeaderContainer } from '../containers/header';
 import { FooterContainer } from '../containers/footer';
 import * as ROUTES from '../constants/routes';
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate, Navigate } from 'react-router-dom';
+import UserContext from "../context/user";
 
 export default function SignIn() {
 
@@ -15,6 +15,7 @@ export default function SignIn() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  const user = useContext(UserContext);
   const isInvalid = password === '' || emailAddress === '';
 
   const handleSignin = (event) => {
@@ -33,6 +34,9 @@ export default function SignIn() {
         setError(error.message);
       });
   };
+
+  if(user)
+    return <Navigate to="/browse"/>
 
   return (
     <>

@@ -7,6 +7,7 @@ export function IsUserRedirect({ user, loggedInPath, children, ...rest }) {
       <Route
         {...rest}
         render={() => {
+            
           if (!user) {
             return children;
           }
@@ -27,6 +28,30 @@ export function IsUserRedirect({ user, loggedInPath, children, ...rest }) {
   );
 }
 
-export default function ProtectedRoute({ user, children, ...rest }) {
+export function ProtectedRoute({ user, children, ...rest }) {
+  return (
+    <Routes>
+      <Route
+        {...rest}
+        render={({ location }) => {
 
+          if (user) {
+            return children;
+          }
+
+          if(!user){
+              return (
+                  <Navigate
+                    to={{
+                        pathname: 'signin',
+                        state: { from: location },
+                    }}
+                    />
+              )
+          }
+          return null;
+        }}
+      />
+    </Routes>
+  );
 }

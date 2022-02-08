@@ -5,6 +5,7 @@ import { FirebaseContext } from './context/firebase';
 import { GlobalStyles } from "./global-styles";
 import React from "react";
 import { firebase } from "./lib/firebase.prod";
+import { Route, BrowserRouter as Router, Routes, useNavigate } from "react-router-dom";
 import { render } from "react-dom";
 
 render(
