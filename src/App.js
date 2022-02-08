@@ -1,24 +1,24 @@
 import * as ROUTES from "./constants/routes";
 
-import { Browse, Home, SignIn, SignUp } from "./pages";
+import { Browse, Home, SignIn, SignUp,  } from "./pages";
 import {
   Route,
   BrowserRouter as Router,
-  Routes,
-  useNavigate,
+  Routes
 } from "react-router-dom";
-import { IsUserRedirect } from "./helpers/routes";
+
 import UserContext from "./context/user";
-import { useState } from "react";
+import { useAuthListener } from "./hooks";
 
 export default function App() {
-  const [user, setUser] = useState({name:"xd"});
+  const { user } = useAuthListener();
 
     return (
       <UserContext.Provider value={user}>
         <Router>
           <Routes>
             <Route exact path={ROUTES.SIGN_IN} element={<SignIn />} />
+            <Route exact path={ROUTES.SIGN_UP} element={<SignUp />} />
             <Route exact path={ROUTES.BROWSE} element={<Browse />} />
             <Route exact path={ROUTES.HOME} element={<Home />} />
           </Routes>
