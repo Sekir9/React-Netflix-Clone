@@ -44,5 +44,7 @@ Accordion.Header = function AccordionHeader({ children, ...restProps }) {
 Accordion.Body = function AccordionBody({ children, ...restProps }) {
     const { toggleShow} = useContext(ToggleContext);
 
-    return toggleShow ? <Body {...restProps}>{children}</Body> : null;
+    return <Body toggleShow={toggleShow} {...restProps}><p style={{
+      padding: '0.8em 2.2em 0.8em 1.2em'
+    }}>{children}</p></Body>;
 }

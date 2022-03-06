@@ -70,15 +70,16 @@ export const Header = styled.div`
 `;
 
 export const Body = styled.div`
-  max-height: 1200px;
-  transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);
+  height: ${({toggleShow}) => toggleShow ? '800px' : '0px'};
+  transition: 5s ease-in-out;
   font-size: 26px;
   font-weight: normal;
   line-height: normal;
   background: #303030;
-  padding: 0.8em 2.2em 0.8em 1.2em;
   white-space: pre-wrap;
   user-select: none;
+  margin: 0;
+  overflow: hidden;
 
   @media (max-width: 600px) {
     font-size: 16px;
